@@ -1,1 +1,52 @@
-hi
+
+#include<iostream>
+using namespace std;
+class A
+{
+public:
+	int x;
+	//const int p; 
+	static int j;
+	mutable int k;
+	A ()
+	{
+		x=10;
+		//p=30;
+		cout<<"defulat"<<x<<endl;
+	}
+	void show(int a)const
+	{
+		//p=11;
+		k=a;
+		j=50;
+		cout<<x <<k <<j <<endl;
+	}
+	static void check() 
+	{
+		//cout<<"static fun"<<" "<<j<<endl;
+		j=55;
+		//k=30;
+		//x=30;
+		cout<<"static fun"<<" "<<j<<endl;
+
+
+	}
+	void display()
+	{
+		cout<<x<<" "<<j<<" "<<k<<endl;
+	}
+};
+int A::j=10;
+int main()
+{
+	cout<<A::j<<endl;
+	const A obj1;
+	A obj2;
+	obj1.show(10);
+	//obj2.show(89);
+	obj2.display();
+	A::check();
+	obj1.check();
+	obj2.check();
+
+}
